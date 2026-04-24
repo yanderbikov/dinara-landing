@@ -1,0 +1,63 @@
+:root {
+  --bg-page: #f7f1e8;
+  --text-body: #2f2f2f;
+  --text-muted: #5e5148;
+  --text-heading: #3a2a24;
+  --accent-gold: #b8955e;
+  --btn-text: #fff9f0;
+  --icon-gold: #9d7a45;
+  --card-bg: #efe3d3;
+  --border-dust: #d8c8b6;
+  --option-bg: #fffbf6;
+  --option-hover: #f1e4d2;
+  --active-answer-bg: #4a4038;
+  --active-answer-text: #fff9f0;
+  --champagne: #e7d2b0;
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text-body);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.site-footer {
+  min-height: 1px;
+  scroll-margin-top: 1rem;
+}

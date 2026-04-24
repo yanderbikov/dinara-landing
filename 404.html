@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Перенаправление…</title>
+    <script>
+      sessionStorage.setItem(
+        'spaRedirect',
+        location.pathname + location.search + location.hash
+      );
+      location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>

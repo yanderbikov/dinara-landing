@@ -1,0 +1,25 @@
+{
+  "name": "dinara-landing",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --no-open --mode dev",
+    "start": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "postbuild": "node scripts/postbuild.mjs",
+    "preview": "vite preview",
+    "predeploy": "pnpm build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "gh-pages": "^6.3.0",
+    "vite": "^6.0.7"
+  }
+}
