@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import SiteFooter from '../components/SiteFooter.jsx';
 import { TELEGRAM_CONSULT_USERNAME } from '../utils/telegramConsultLink.js';
 import './FoundationCoursePage.css';
@@ -45,6 +46,15 @@ const months = [
     icon: 'target',
     color: '#cf9a63',
     bgColor: '#f8efe7',
+    details: {
+      learn: [
+        'Убираем утечки внимания и энергии.',
+        'Фиксируем главную цель и стратегию на 1-12 месяцев.',
+        'Собираем рабочий ритм дня и ресурсное состояние.',
+      ],
+      result:
+        'В конце месяца — ясный вектор, приоритеты и ощущение собранности без распыления.',
+    },
   },
   {
     number: 2,
@@ -53,6 +63,15 @@ const months = [
     icon: 'trend',
     color: '#cc9760',
     bgColor: '#f7eee5',
+    details: {
+      learn: [
+        'Разбираем сценарий «знаю, но не делаю».',
+        'Внедряем комфортную дисциплину и трекинг прогресса.',
+        'Снижаем прокрастинацию и эмоциональные качели.',
+      ],
+      result:
+        'В конце месяца — стабильные действия по алгоритму и рост без откатов.',
+    },
   },
   {
     number: 3,
@@ -62,6 +81,15 @@ const months = [
     icon: 'shield',
     color: '#c7925b',
     bgColor: '#f8efe8',
+    details: {
+      learn: [
+        'Работаем со страхом, тревогой и сомнениями.',
+        'Укрепляем внутреннюю опору и личные границы.',
+        'Тренируем проявленность и уверенную позицию.',
+      ],
+      result:
+        'В конце месяца — больше уверенности, меньше зависимости от внешней оценки.',
+    },
   },
   {
     number: 4,
@@ -71,6 +99,15 @@ const months = [
     icon: 'spark',
     color: '#c28c56',
     bgColor: '#f8efe5',
+    details: {
+      learn: [
+        'Разделяем роли и управляем нагрузкой без хаоса.',
+        'Тренируем устойчивость к критике и стрессу.',
+        'Внедряем управление эмоциями как навык.',
+      ],
+      result:
+        'В конце месяца — эмоциональная стабильность и выдержка в неопределенности.',
+    },
   },
 ];
 
@@ -163,6 +200,8 @@ function MonthIcon({ type, color }) {
 }
 
 export default function FoundationCoursePage() {
+  const [expandedMonth, setExpandedMonth] = useState(null);
+
   return (
     <>
       <main className="course-page">
@@ -220,11 +259,7 @@ export default function FoundationCoursePage() {
             </h2>
             <div className="course-months__grid">
               {months.map((month) => (
-                <article
-                  key={month.number}
-                  className="month-card"
-                  style={{ backgroundColor: month.bgColor }}
-                >
+                <article key={month.number} className="month-card" style={{ backgroundColor: month.bgColor }}>
                   <div className="month-card__head">
                     <div
                       className="month-card__number"
@@ -238,6 +273,34 @@ export default function FoundationCoursePage() {
                   </div>
                   <h3 className="month-card__title">{month.title}</h3>
                   <p className="month-card__subtitle">{month.subtitle}</p>
+                  <button
+                    type="button"
+                    className="month-card__more"
+                    aria-expanded={expandedMonth === month.number}
+                    aria-controls={`month-details-${month.number}`}
+                    onClick={() =>
+                      setExpandedMonth((prev) => (prev === month.number ? null : month.number))
+                    }
+                  >
+                    подробнее
+                    <span
+                      className={`month-card__arrow ${expandedMonth === month.number ? 'month-card__arrow--open' : ''}`}
+                      aria-hidden
+                    >
+                      ↓
+                    </span>
+                  </button>
+                  {expandedMonth === month.number && (
+                    <div id={`month-details-${month.number}`} className="month-card__details">
+                      <p className="month-card__details-title">Коротко о модуле:</p>
+                      <ul className="month-card__details-list">
+                        {month.details.learn.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                      <p className="month-card__details-result">{month.details.result}</p>
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
