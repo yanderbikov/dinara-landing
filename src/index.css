@@ -1,18 +1,18 @@
 :root {
-  --bg-page: #f7f1e8;
-  --text-body: #2f2f2f;
-  --text-muted: #5e5148;
-  --text-heading: #3a2a24;
-  --accent-gold: #b8955e;
-  --btn-text: #fff9f0;
+  --bg-page: #faf6f1;
+  --text-body: #3a3330;
+  --text-muted: #6b5d55;
+  --text-heading: #3d2e26;
+  --accent-gold: #b08d62;
+  --btn-text: #fffcf8;
   --icon-gold: #9d7a45;
-  --card-bg: #efe3d3;
-  --border-dust: #d8c8b6;
+  --card-bg: #ffffff;
+  --border-dust: #e8ddd2;
   --option-bg: #fffbf6;
-  --option-hover: #f1e4d2;
-  --active-answer-bg: #4a4038;
-  --active-answer-text: #fff9f0;
-  --champagne: #e7d2b0;
+  --option-hover: #f3ebe0;
+  --active-answer-bg: #3d2e26;
+  --active-answer-text: #faf6f1;
+  --champagne: #d4b896;
   --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
 }
@@ -60,7 +60,7 @@ a {
 .site-footer {
   padding: 2.5rem 1.25rem 2rem;
   scroll-margin-top: 1rem;
-  background: #f0e5d5;
+  background: #f3ebe0;
   border-top: 1px solid var(--border-dust);
 }
 

@@ -1,24 +1,6 @@
-import { useMemo } from 'react';
-import { useQuizCompletion } from '../context/QuizCompletionContext.jsx';
-import { buildTelegramConsultUrl } from '../utils/telegramConsultLink.js';
 import './Hero.css';
 
 export default function Hero() {
-  const { completedAnswers } = useQuizCompletion();
-
-  const consultHref = useMemo(() => {
-    if (
-      completedAnswers &&
-      completedAnswers.length &&
-      completedAnswers.every((a) => typeof a === 'number')
-    ) {
-      return buildTelegramConsultUrl(completedAnswers);
-    }
-    return '#quiz';
-  }, [completedAnswers]);
-
-  const openTelegram = consultHref.startsWith('https://t.me/');
-
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__inner">
@@ -33,11 +15,11 @@ export default function Hero() {
           <ul className="hero__facts" aria-label="Опыт">
             <li className="hero__fact">
               <span className="hero__fact-icon" aria-hidden>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
                   <path
                     d="M16.667 5L7.5 14.167 3.333 10"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
@@ -47,11 +29,11 @@ export default function Hero() {
             </li>
             <li className="hero__fact">
               <span className="hero__fact-icon" aria-hidden>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
                   <path
                     d="M16.667 5L7.5 14.167 3.333 10"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
@@ -61,11 +43,11 @@ export default function Hero() {
             </li>
             <li className="hero__fact">
               <span className="hero__fact-icon" aria-hidden>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
                   <path
                     d="M16.667 5L7.5 14.167 3.333 10"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
@@ -74,13 +56,7 @@ export default function Hero() {
               <span>Международная сертификация ICU</span>
             </li>
           </ul>
-          <a
-            className="hero__cta"
-            href={consultHref}
-            {...(openTelegram
-              ? { target: '_blank', rel: 'noopener noreferrer' }
-              : {})}
-          >
+          <a className="hero__cta" href="#quiz">
             Записаться на диагностическую сессию
           </a>
         </div>
