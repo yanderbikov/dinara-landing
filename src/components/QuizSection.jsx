@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useQuizCompletion } from '../context/QuizCompletionContext.jsx';
 import { QUESTIONS } from '../data/quizQuestions.js';
-import { buildTelegramConsultUrl } from '../utils/telegramConsultLink.js';
+import {
+  buildTelegramConsultUrl,
+  buildWhatsAppConsultUrl,
+} from '../utils/telegramConsultLink.js';
 import './QuizSection.css';
 
 export default function QuizSection() {
@@ -33,10 +36,13 @@ export default function QuizSection() {
     setAnswers(QUESTIONS.map(() => null));
   }, [clearCompletedAnswers]);
 
-  const telegramConsultHref =
-    finished && answers.every((a) => a !== null)
-      ? buildTelegramConsultUrl(answers)
-      : '#quiz';
+  const consultReady = finished && answers.every((a) => a !== null);
+  const telegramConsultHref = consultReady
+    ? buildTelegramConsultUrl(answers)
+    : '#quiz';
+  const whatsappConsultHref = consultReady
+    ? buildWhatsAppConsultUrl(answers)
+    : '#quiz';
 
   return (
     <section
@@ -130,14 +136,23 @@ export default function QuizSection() {
               Динара разберёт ваши ответы, определит главную точку торможения и
               подскажет первый шаг к стабильному росту.
             </p>
+            <p className="quiz__final-choose">Выберите, куда написать:</p>
             <div className="quiz__final-actions">
               <a
-                className="quiz__final-cta"
+                className="quiz__final-cta quiz__final-cta--telegram"
                 href={telegramConsultHref}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Забрать бесплатную сессию
+                Telegram
+              </a>
+              <a
+                className="quiz__final-cta quiz__final-cta--whatsapp"
+                href={whatsappConsultHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
               </a>
               <button type="button" className="quiz__again" onClick={restart}>
                 Пройти квиз заново

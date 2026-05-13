@@ -2,6 +2,9 @@ import { QUESTIONS } from '../data/quizQuestions.js';
 
 export const TELEGRAM_CONSULT_USERNAME = 'dinara_psy_coach';
 
+/** Цифры без «+», формат wa.me */
+export const WHATSAPP_CONSULT_PHONE = '6285190279190';
+
 /**
  * @param {number[]} answers — индексы выбранных вариантов по порядку вопросов
  */
@@ -30,4 +33,13 @@ export function buildQuizTelegramMessage(answers) {
 export function buildTelegramConsultUrl(answers) {
   const text = buildQuizTelegramMessage(answers);
   return `https://t.me/${TELEGRAM_CONSULT_USERNAME}?text=${encodeURIComponent(text)}`;
+}
+
+/**
+ * @param {number[]} answers
+ * @returns {string}
+ */
+export function buildWhatsAppConsultUrl(answers) {
+  const text = buildQuizTelegramMessage(answers);
+  return `https://wa.me/${WHATSAPP_CONSULT_PHONE}?text=${encodeURIComponent(text)}`;
 }

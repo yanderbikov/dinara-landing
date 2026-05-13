@@ -53,7 +53,7 @@ export default function Hero() {
                   />
                 </svg>
               </span>
-              <span>Международная сертификация ICU</span>
+              <span>Психолог и международный коуч ICU</span>
             </li>
           </ul>
           <a className="hero__cta" href="#quiz">
