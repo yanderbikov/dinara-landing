@@ -483,6 +483,110 @@
   font-weight: 500;
 }
 
+/* ─── Author ─── */
+
+.fp-author {
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3rem);
+  background: var(--fp-card);
+  border-top: 1px solid var(--fp-border);
+}
+
+.fp-author__inner {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .fp-author__inner {
+    grid-template-columns: minmax(280px, 400px) 1fr;
+  }
+}
+
+.fp-author__photo-col {
+  display: flex;
+  justify-content: center;
+}
+
+.fp-author__photo-frame {
+  position: relative;
+  width: min(100%, 380px);
+  border-radius: var(--fp-radius-lg);
+  overflow: hidden;
+}
+
+.fp-author__photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--fp-radius-lg);
+  border: 1px solid rgba(176, 141, 98, 0.15);
+  pointer-events: none;
+}
+
+.fp-author__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--fp-radius-lg);
+}
+
+.fp-author__content {
+  max-width: 520px;
+}
+
+.fp-author__name {
+  margin: 1.2rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--fp-text);
+}
+
+.fp-author__role {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--fp-accent);
+  font-weight: 500;
+}
+
+.fp-author__list {
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fp-author__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--fp-text-soft);
+}
+
+.fp-author__list-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(176, 141, 98, 0.12);
+  color: var(--fp-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+}
+
 /* ─── Results ─── */
 
 .fp-results {
@@ -644,6 +748,10 @@
   .fp-includes__inner > .fp-section-title,
   .fp-results__inner > .fp-section-title {
     text-align: left;
+  }
+
+  .fp-author__photo-frame {
+    width: min(100%, 320px);
   }
 
   .fp-results__inner {

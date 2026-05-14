@@ -7,6 +7,17 @@ import './FoundationCoursePage.css';
 const HERO_IMAGE =
   'https://storage.yandexcloud.net/dinara.pro/landing/sit.jpg';
 
+const AUTHOR_IMAGE =
+  'https://storage.yandexcloud.net/dinara.pro/landing/About.jpg';
+
+const authorCredentials = [
+  '15+ лет опыта в корпоративном и предпринимательском сегменте',
+  '3000+ часов клиентской практики',
+  '4 профильных образования',
+  'Опыт управления командами, проектами и бюджетами',
+  'Автор курсов по развитию личностных, финансовых и бизнес-навыков',
+];
+
 const months = [
   {
     number: 1,
@@ -324,6 +335,41 @@ export default function FoundationCoursePage() {
                   <p className="fp-includes__text">{item.text}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Author */}
+        <section className="fp-author">
+          <div className="fp-author__inner">
+            <div className="fp-author__photo-col">
+              <div className="fp-author__photo-frame">
+                <img
+                  src={AUTHOR_IMAGE}
+                  alt="Динара Абдысатарова"
+                  width={480}
+                  height={600}
+                  decoding="async"
+                  className="fp-author__photo"
+                />
+              </div>
+            </div>
+            <div className="fp-author__content">
+              <h2 className="fp-section-title">Кто ведёт программу</h2>
+              <p className="fp-author__name">
+                Динара Абдысатарова
+              </p>
+              <p className="fp-author__role">
+                Психолог, финансовый коуч и&nbsp;бизнес-стратег
+              </p>
+              <ul className="fp-author__list">
+                {authorCredentials.map((item) => (
+                  <li key={item} className="fp-author__list-item">
+                    <span className="fp-author__list-marker" aria-hidden>✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
